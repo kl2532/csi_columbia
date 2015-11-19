@@ -64,21 +64,16 @@ Statistics on 1D vs 2D reads in Pass and Fail
    
    <img src="./img/question6/2D-pass.png" width="600">
    
-5. EDIT
+5. Longest reads:
 
-Longest read obtained for:
-
-   | Passed reads | Nucleotides |
+   | 2D | Nucleotides |
    | --- | --- | 
-   | Template |13927 |
-   | Complement | 13927 |
-   | 2D | 15808 |
+   | Passed |32460 |
+   | Failed | 26447 |
    
-   `$ python group5_report1_question7.py fastq/template-pass.fastq`
+   `$ python group5_assignment3_question5.py fastq/2D-pass.fastq`
    
-   `$ python group5_report1_question7.py fastq/complement-pass.fastq`
-   
-   `$ python group5_report1_question7.py fastq/2D-pass.fastq`
+   `$ python group5_assignment3_question5.py fastq/2D-fail.fastq`
    
 6. EDIT
 
