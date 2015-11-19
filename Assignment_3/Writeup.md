@@ -1,7 +1,6 @@
 #Assignment 3
 ##QC and alignment
 1. EDIT
-
 Statistics on 1D vs 2D reads in Pass and Fail
  * Number of 1D reads classified as 'failed' = 
  * Number of 2D reads classified as 'failed' = 
