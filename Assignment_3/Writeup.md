@@ -37,32 +37,18 @@ Statistics on 1D vs 2D reads in Pass and Fail
 
    <img src="./img/question3/question3_fail.png" width="600">
 
-4. EDIT
-   **Length distribution of 1D (template and complement) reads, failed**
-
-   `$ python group5_report1_question6.py fastq/1D-fail.fastq 1D-fail.png`
-   
-   <img src="./img/question6/1D-fail.png" width="600">
-
-   _Note:_ Longest nucleotide for 1D-fail.fastq is 195979 nucleotides
-   
+4. 
    **Length distribution of 2D reads, failed**
    
-   `$ python group5_report1_question6.py fastq/2D-fail.fastq 2D-fail.png`
+   `$ python group5_report1_question4.py fastq/2D-fail.fastq 2D-fail.png`
    
-   <img src="./img/question6/2D-fail.png" width="600">
-   
-   **Length distribution of 1D (template and complement) reads, passed**
-   
-   `$ python group5_report1_question6.py fastq/1D-pass.fastq 1D-pass.png`
-   
-   <img src="./img/question6/1D-pass.png" width="600">
+   <img src="./img/question4/2D-fail.png" width="600">
    
    **Length distribution of 2D reads, passed**
    
-   `$ python group5_report1_question6.py fastq/2D-pass.fastq 2D-pass.png`
+   `$ python group5_report1_question4.py fastq/2D-pass.fastq 2D-pass.png`
    
-   <img src="./img/question6/2D-pass.png" width="600">
+   <img src="./img/question4/2D-pass.png" width="600">
    
 5. Longest reads:
 
