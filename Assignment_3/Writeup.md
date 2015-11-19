@@ -59,8 +59,17 @@ Statistics on 1D vs 2D reads in Pass and Fail
    
    `$ python group5_assignment3_question5.py fastq/2D-fail.fastq`
    
-6. EDIT
-
+6. 
 7. EDIT
 
-8. Open question
+8. EDIT - Three Strategis to Reduce the Number of Errors in the Reads
+I) Greedy Algorithm - Check for highly interoperable regions
+	Fill in based on many reference reads
+II) Cross-Reference overlapping reads
+III) Plotting frequency of alignments at positions
+	-Should have a uniform distribution
+IV) Map regions that map to highly variable regions 
+	-Exclude regions that only align to highly variable regions
+	-Mask areas of the genome that we are uncertain about
+
+
