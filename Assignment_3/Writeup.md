@@ -11,15 +11,14 @@ Statistics on 1D vs 2D reads in Pass and Fail
   * % of reads that are 2D in 'fail' folder
 
 
-2. EDIT
+2. 
+   Active Channels =  78
 
-   Active Channels =  XX
+   Average reads per channel =  15.2564102564
 
-   Average reads per channel =  XX
-
-   Channel XX has most reads with XXX reads
+   Channel 224 has most reads with 81 reads
    
-   `$ python group5_report1_question2.py fastq/2D-fail.fastq fastq/2D-pass.fastq fastq/1D-fail.fastq fastq/1D-pass.fastq`
+   `$ python group5_assignment3_question2.py fastq/2D-fail.fastq fastq/2D-pass.fastq fastq/1D-fail.fastq fastq/1D-pass.fastq`
 
 3. EDIT
 
@@ -40,13 +39,13 @@ Statistics on 1D vs 2D reads in Pass and Fail
 4. 
    **Length distribution of 2D reads, failed**
    
-   `$ python group5_report1_question4.py fastq/2D-fail.fastq 2D-fail.png`
+   `$ python group5_assignment3_question4.py fastq/2D-fail.fastq 2D-fail.png`
    
    <img src="./img/question4/2D-fail.png" width="600">
    
    **Length distribution of 2D reads, passed**
    
-   `$ python group5_report1_question4.py fastq/2D-pass.fastq 2D-pass.png`
+   `$ python group5_assignment3_question4.py fastq/2D-pass.fastq 2D-pass.png`
    
    <img src="./img/question4/2D-pass.png" width="600">
    

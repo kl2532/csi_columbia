@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-Usage: (python) group5_report1_question6.py <.fastq file> <.png file>
+Usage: (python) group5_assignment3_question4.py <.fastq file> <.png file>
 Plots histogram of the length distribution of FASTQ file.
 Outputs plot into provided .png filename.
 Examples:
-        $ python group5_report1_question4.py fastq/2D-fail.fastq 2D-fail.png
-        $ python group5_report1_question4.py fastq/2D-pass.fastq 2D-pass.png
+        $ python group5_assignment3_question4.py fastq/2D-fail.fastq 2D-fail.png
+        $ python group5_assignment3_question4.py fastq/2D-pass.fastq 2D-pass.png
 """
 
 import sys
@@ -65,6 +65,6 @@ if __name__ == '__main__':
             print '2nd argument must be a .png file'
     else:
         print 'Usage: \
-            python group5_report1_question4.py <.fastq file> <.png file>'
+            python group5_assignment3_question4.py <.fastq file> <.png file>'
         print 'Example: \
-            python group5_report1_question4.py fastq/2D-fail.fastq 2D-fail.png'
+            python group5_assignment3_question4.py fastq/2D-fail.fastq 2D-fail.png'
