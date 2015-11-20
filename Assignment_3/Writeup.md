@@ -1,5 +1,9 @@
 #Assignment 3
 ##QC and alignment
+
+Group 5: Brian Trippe (blt2114), David Streid (dcs2153), Diego Paris (drp2121), Katie Lin (kl2532)
+ 
+
 1. 
 Statistics on 1D vs 2D reads in Pass and Fail
  * Number of 2D reads classified as 'failed' = 3109
