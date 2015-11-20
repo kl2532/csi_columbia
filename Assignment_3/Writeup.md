@@ -62,6 +62,13 @@ Statistics on 1D vs 2D reads in Pass and Fail
 6. 
 7. EDIT
 followed [tutorial](http://biobits.org/samtools_primer.html)
+        | Nucleotide    | A | C | T | G |
+        | --- | --- | --- | --- |
+        | A | 264985 |  1200 | 1159 | 1741 |
+        | C | 2587 | 174292 | 2758 | 1731 |
+        | T | 1158 | 1787 | 268059 | 1127 |
+        | G | 2653 | 1772 | 2431 | 175448 |
+
 
 8. EDIT - Three Strategis to Reduce the Number of Errors in the Reads
 I) Greedy Algorithm - Check for highly interoperable regions
