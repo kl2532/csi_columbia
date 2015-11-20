@@ -2,8 +2,8 @@
 ##QC and alignment
 1. EDIT
 Statistics on 1D vs 2D reads in Pass and Fail
- * Number of 2D reads classified as 'failed' = 2272 
- * Number of 2D reads classified as 'passed' = 3109
+ * Number of 2D reads classified as 'failed' = 3109
+ * Number of 2D reads classified as 'passed' = 2272
  * % of 2D reads are 'Pass' = 42%
 
 2. 
