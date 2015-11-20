@@ -2,13 +2,10 @@
 ##QC and alignment
 1. EDIT
 Statistics on 1D vs 2D reads in Pass and Fail
- * Number of 1D reads classified as 'failed' = 
- * Number of 2D reads classified as 'failed' = 
- * Number of 1D reads classified as 'passed' = 
- * Number of 2D reads classified as 'passed' = 
- * % of reads that are 2D in 'pass' folder
-  * % of reads that are 2D in 'fail' folder
-
+ * Number of 2D reads classified as 'failed' = 3109
+ * Number of 2D reads classified as 'passed' = 2272
+ * % of 2D reads that are 'Failed' = 42%
+ * % of 2D reads that are 'Pass' = 100%
 
 2. 
    Active Channels =  216
@@ -19,21 +16,24 @@ Statistics on 1D vs 2D reads in Pass and Fail
    
    `$ python group5_assignment3_question2.py fastq/2D-fail.fastq fastq/2D-pass.fastq fastq/1D-fail.fastq fastq/1D-pass.fastq`
 
-3. EDIT
+3. 
 
    Plot Cummulative Distribution of Nucleotides over Time (hours)
 
-   **Cummulative Distribution of Nucleotide reads, passed**
-   
-   `$ poretools yield_plot --plot-type basepairs pass`
+   **Cummulative Distribution of Nucleotide reads, 2d passed**
 
-   <img src="./img/question3/question3_pass.png" width="600">
+   <img src="./img/question3/pass_2d.png" width="600">
 
-   **Cummulative Distribution of Nucleotide reads, passed**
-   
-   `$ poretools yield_plot --plot-type basepairs pass`
+   **Cummulative Distribution of Nucleotide reads, 2d failed**
 
-   <img src="./img/question3/question3_fail.png" width="600">
+   <img src="./img/question3/fail_2d.png" width="600">
+
+   **Cummulative Distribution of Nucleotide reads, 1d failed**
+
+   <img src="./img/question3/fail_1d.png" width="600">
+
+   **Cummulative Distribution of Nucleotide reads, 1d failed**
+   `There are no 1D pass reads`
 
 4. 
    **Length distribution of 2D reads, failed**

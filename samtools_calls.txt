@@ -1,0 +1,17 @@
+# Creates .bam file from .sam
+samtools view -b -S -o aln1.bam aln1.sam
+
+# Creates aln1sorted.bam (ordered by chromosome)
+samtools sort aln1.bam aln1sorted
+
+# Creates bcf (can use sorted bam too)
+samtools mpileup -uf h19.fasta aln1sorted.bam > aln1.bcf
+
+# So 0x904 is equivalent to 2308 in base 10. 
+# This means that bits 4 (unmapped), 256 (secondary alignment), and 2048 (supplementary alignment) are set 
+# and the "-F" option to samtools view then indicates that any record with one of these bits set is to be ignored.
+# This returns the number of reads aligned.
+samtools view -F 0x904 -c aln1sorted.bam
+
+# Look at the mappings (just interesting):
+samtools flagstat aln1sorted.bam
