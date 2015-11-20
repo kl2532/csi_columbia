@@ -80,19 +80,18 @@ samtools view -F 0x904 -c aln1sorted.bam
 
 # That number is 2091 reads aligned. There were 2272 reads in the fastq file run through bwa mem.
 
-7. EDIT
-followed [tutorial](http://biobits.org/samtools_primer.html)
+7.  followed [tutorial](http://biobits.org/samtools_primer.html)
 
-Confusion Matrix
-Columns are reference
-Rows are calls
-        | Nucleotide    | A | C | T | G |
-        | --- | --- | --- | --- |
-        | A | 264985 |  1200 | 1159 | 1741 |
-        | C | 2587 | 174292 | 2758 | 1731 |
-        | T | 1158 | 1787 | 268059 | 1127 |
-        | G | 2653 | 1772 | 2431 | 175448 |
+   Confusion Matrix
+    - Columns are reference
+    - Rows are calls
 
+   | Nucleotide | A | C | T | G |
+   | --- | --- | --- | --- | --- |
+   | A | 264985 | 1200 | 1159 | 1741 |
+   | C | 2587 | 174292 | 2758 | 1731 |
+   | T | 1158 | 1787 | 268059 | 1127 |
+   | G | 2653 | 1772 | 2431 | 175448 |
 
 8. Three Strategies to Reduce the Number of Errors in the Reads
 I) Imputations as discussed in class could be used to replace low quality calls, reducing the error rate. 
