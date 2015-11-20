@@ -62,5 +62,6 @@ Statistics on 1D vs 2D reads in Pass and Fail
 6. EDIT
 
 7. EDIT
+followed [tutorial](http://biobits.org/samtools_primer.html)
 
 8. Open question
