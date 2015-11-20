@@ -1,5 +1,7 @@
 """Create Confusion creates a confusion matrix from a tsv of snps
 
+First column is the reference, second is read
+
 """
 
 import sys
@@ -30,19 +32,21 @@ def main(argv):
     for l in snps_file:
         # skip the first line.
         (ref, read) = l.strip("\n").split("\t")
+        ref = ref.lower() 
+        read = read.lower() # case is a function of ref/complement 
         if ref not in BASES:
             print "base \"" + str(ref) +"\" not in dict"
             continue
-        if read not in BASES:
-            if len(read) == 3 and read[:2] == "^~":
-                read = read[2]
-            elif len(read) == 2 and read[1] == "$":
-                read = read[0]
+
+        # to keep things simple we ignore multiply mapped reads and reads
+        # called as indels
+        if read not in BASES: 
+            if read in [",", "."]: # matching reads
+                conf_mat[ref][ref]+=1
+                continue
             else:
-                print "base \"" + str(read) +"\" not in dict"
                 continue
         conf_mat[ref][read]+=1
-
     print str(conf_mat)
 
 
