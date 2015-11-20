@@ -96,7 +96,8 @@ Used [tutorial](http://biobits.org/samtools_primer.html) for instruction on usin
  | T | 1158 | 1787 | 268059 | 1127 |
  | G | 2653 | 1772 | 2431 | 175448 |
 
-8. Three Strategies to Reduce the Number of Errors in the Reads
+8. Strategies to Reduce the Number of Errors in the Reads
+
 * Imputations as discussed in class could be used to replace low quality calls, reducing the error rate. 
 
 * The process would be to extract high-quality SNPs from the aligned reads and use them to find the most likely calls for misaligned areas of the aligned reads.
