@@ -2,12 +2,10 @@
 ##QC and alignment
 1. EDIT
 Statistics on 1D vs 2D reads in Pass and Fail
- * Number of 1D reads classified as 'failed' = 
- * Number of 2D reads classified as 'failed' = 
- * Number of 1D reads classified as 'passed' = 
- * Number of 2D reads classified as 'passed' = 
- * % of reads that are 2D in 'pass' folder
-  * % of reads that are 2D in 'fail' folder
+ * Number of 2D reads classified as 'failed' = 2272 
+ * Number of 2D reads classified as 'passed' = 3109
+ * % of reads that are 2D in 'pass' folder = 42%
+  * % of reads that are 2D in 'fail' folder = 
 
 
 2. 
