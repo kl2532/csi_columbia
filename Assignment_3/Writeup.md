@@ -1,11 +1,13 @@
 #Assignment 3
 ##QC and alignment
-1. EDIT
+1. 
 Statistics on 1D vs 2D reads in Pass and Fail
  * Number of 2D reads classified as 'failed' = 3109
  * Number of 2D reads classified as 'passed' = 2272
  * % of 2D reads that are 'Failed' = 42%
  * % of 2D reads that are 'Pass' = 100%
+ 
+ `group5_report1_question1.sh`
 
 2. 
    Active Channels =  216
@@ -33,7 +35,10 @@ Statistics on 1D vs 2D reads in Pass and Fail
    <img src="./img/question3/fail_1d.png" width="600">
 
    **Cummulative Distribution of Nucleotide reads, 1d failed**
-   `There are no 1D pass reads`
+   
+   There are no 1D pass reads
+   
+   `question3/group5_assignment3_question3.ipynb`
 
 4. 
    **Length distribution of 2D reads, failed**
@@ -77,19 +82,23 @@ So 0x904 is equivalent to 2308 in base 10. This means that bits 4 (unmapped), 25
 
  That number is 2091 reads aligned. There were 2272 reads in the fastq file run through bwa mem.
 
+<<<<<<< HEAD
 7.
 Used [tutorial](http://biobits.org/samtools_primer.html) for instruction on using samtools.
+=======
+7.  followed [tutorial](http://biobits.org/samtools_primer.html)
+>>>>>>> 3c463eef8ddbccee56f34bed19ef711aa270628d
 
-Confusion Matrix
-Columns are reference
-Rows are calls
-        | Nucleotide    | A | C | T | G |
-        | --- | --- | --- | --- |
-        | A | 264985 |  1200 | 1159 | 1741 |
-        | C | 2587 | 174292 | 2758 | 1731 |
-        | T | 1158 | 1787 | 268059 | 1127 |
-        | G | 2653 | 1772 | 2431 | 175448 |
+   Confusion Matrix
+    - Columns are reference
+    - Rows are calls
 
+   | Nucleotide | A | C | T | G |
+   | --- | --- | --- | --- | --- |
+   | A | 264985 | 1200 | 1159 | 1741 |
+   | C | 2587 | 174292 | 2758 | 1731 |
+   | T | 1158 | 1787 | 268059 | 1127 |
+   | G | 2653 | 1772 | 2431 | 175448 |
 
 8. Three Strategies to Reduce the Number of Errors in the Reads
 * Imputations as discussed in class could be used to replace low quality calls, reducing the error rate. 
