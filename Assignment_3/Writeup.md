@@ -1,11 +1,13 @@
 #Assignment 3
 ##QC and alignment
-1. EDIT
+1. 
 Statistics on 1D vs 2D reads in Pass and Fail
  * Number of 2D reads classified as 'failed' = 3109
  * Number of 2D reads classified as 'passed' = 2272
  * % of 2D reads that are 'Failed' = 42%
  * % of 2D reads that are 'Pass' = 100%
+ 
+ `group5_report1_question1.sh`
 
 2. 
    Active Channels =  216
@@ -33,7 +35,10 @@ Statistics on 1D vs 2D reads in Pass and Fail
    <img src="./img/question3/fail_1d.png" width="600">
 
    **Cummulative Distribution of Nucleotide reads, 1d failed**
-   `There are no 1D pass reads`
+   
+   There are no 1D pass reads
+   
+   `question3/group5_assignment3_question3.ipynb`
 
 4. 
    **Length distribution of 2D reads, failed**
