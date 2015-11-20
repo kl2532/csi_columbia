@@ -62,6 +62,10 @@ Statistics on 1D vs 2D reads in Pass and Fail
 6. 
 7. EDIT
 followed [tutorial](http://biobits.org/samtools_primer.html)
+
+Confusion Matrix
+Columns are reference
+Rows are calls
         | Nucleotide    | A | C | T | G |
         | --- | --- | --- | --- |
         | A | 264985 |  1200 | 1159 | 1741 |
