@@ -1,0 +1,39 @@
+CIGAR: CIGAR string. The CIGAR operations are given in the following table (set ‘*’ if unavailable):
+Op BAM Description
+M 0 alignment match (can be a sequence match or mismatch)
+I 1 insertion to the reference
+D 2 deletion from the reference
+N 3 skipped region from the reference
+S 4 soft clipping (clipped sequences present in SEQ)
+H 5 hard clipping (clipped sequences NOT present in SEQ)
+P 6 padding (silent deletion from padded reference)
+= 7 sequence match
+X 8 sequence mismatch
+• H can only be present as the first and/or last operation.
+• S may only have H operations between them and the ends of the CIGAR string.
+• For mRNA-to-genome alignment, an N operation represents an intron. For other types of alignments,
+the interpretation of N is not defined.
+• Sum of lengths of the M/I/S/=/X operations shall equal the length of SEQ
+
+(above taken from http://samtools.github.io/hts-specs/SAMv1.pdf)
+
+M 14,681,244
+I 809,107
+D 873,473
+N 0
+S 4,612,185
+H 15,076,552
+P 0
+= 0
+X 0
+
+
+total read lengths 
+14681244 + 809107 + 4612185
+= 20,102,536
+
+aligned
+14,681,244
+
+not aligned
+5,421,292
