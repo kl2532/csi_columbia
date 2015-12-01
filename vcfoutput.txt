@@ -1,0 +1,30 @@
+3090 SNPs in file bam_chr1.vcf
+1312 SNPs in file bam_chr10.vcf
+1983 SNPs in file bam_chr11.vcf
+1476 SNPs in file bam_chr12.vcf
+1413 SNPs in file bam_chr13.vcf
+1046 SNPs in file bam_chr14.vcf
+1406 SNPs in file bam_chr15.vcf
+815 SNPs in file bam_chr16.vcf
+821 SNPs in file bam_chr17.vcf
+1174 SNPs in file bam_chr18.vcf
+361 SNPs in file bam_chr19.vcf
+2869 SNPs in file bam_chr2.vcf
+606 SNPs in file bam_chr20.vcf
+616 SNPs in file bam_chr21.vcf
+249 SNPs in file bam_chr22.vcf
+2105 SNPs in file bam_chr3.vcf
+2285 SNPs in file bam_chr4.vcf
+2763 SNPs in file bam_chr5.vcf
+2050 SNPs in file bam_chr6.vcf
+1399 SNPs in file bam_chr7.vcf
+1486 SNPs in file bam_chr8.vcf
+1700 SNPs in file bam_chr9.vcf
+0 SNPs in file bam_chrM.vcf
+1619 SNPs in file bam_chrX.vcf
+56 SNPs in file bam_chrY.vcf
+34700 SNPs total
+33025 Autosomal
+1675 XY
+
+1345 known SNPS
