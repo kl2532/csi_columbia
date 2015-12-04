@@ -99,6 +99,18 @@ Statistics on 1D vs 2D reads in Pass and Fail
  | T | 1158 | 1787 | 268059 | 1127 |
  | G | 2653 | 1772 | 2431 | 175448 |
 
+
+updated subsitution matrix
+ | Nucleotide | A | C | T | G | Del |
+ | --- | --- | --- | --- | --- | --- |
+ | A | 364290 | 3459 | 1618 | 3591 | 10947 |
+ | C | 1691 | 246343 | 2550 | 2505 | 6171 |
+ | T | 1576 | 3743 | 365034 | 3290 | 18011 |
+ | G | 2443 | 2466 | 1591 | 246612 | 6213 |
+ | Ins | 7596 | 8785 | 10782 | 9589 | N/A |
+
+
+
  Only a subset of aligned bases were used to produce this matrix as the distribution seemed to converge after an even smaller number of aligned bases.
  All indels were ignored for this.
 
