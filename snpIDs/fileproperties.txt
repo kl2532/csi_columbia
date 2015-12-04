@@ -1,3 +1,9 @@
 Venter: 4017989 ssids
 Watson: 2060544 rsids
 Yanis: 960634 rsids
+Sample: 2370 rsids
+
+Matches:
+Venter: 248
+Watson: 402
+Yaniv: 87
