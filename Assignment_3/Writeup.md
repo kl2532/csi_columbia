@@ -101,6 +101,7 @@ Statistics on 1D vs 2D reads in Pass and Fail
 
 
 updated subsitution matrix
+
  | Nucleotide | A | C | T | G | Del |
  | --- | --- | --- | --- | --- | --- |
  | A | 364290 | 3459 | 1618 | 3591 | 10947 |
