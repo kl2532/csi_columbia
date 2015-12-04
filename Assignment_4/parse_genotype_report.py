@@ -2,7 +2,7 @@
 """
 Usage: (python) parse_genotype_report.py genome_full_snps.txt <.xml files>
 Example:
-        $ python get_ancestry.py genome_full_snps.txt ncbi_genotype_report.xml
+        $ python parse_genotype_report.py genome_full_snps.txt ncbi_genotype_report.xml
 """
 
 import sys
@@ -281,4 +281,4 @@ if __name__ == '__main__':
     else:
         print 'Usage: (python) parse_genotype_report.py genome_full_snps.txt <.xml files>'
         print 'Example: \
-            python get_ancestry.py genome_full_snps.txt ncbi_genotype_report.xml'
+            python parse_genotype_report.py genome_full_snps.txt ncbi_genotype_report.xml'
