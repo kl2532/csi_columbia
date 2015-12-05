@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Usage: (python) parse_genotype_report.py genome_full_snps.txt <.xml files>
+Returns number of rsid matches with Watson, Venter, and NCBI results
 Example:
         $ python parse_genotype_report.py genome_full_snps.txt ncbi_genotype_report.xml
 """
@@ -21,32 +22,28 @@ def build_thousand_genotype_dict(genotype_reports):
         built from genotype_reports information"""
         
     population_dict = {}
+    # retrieve information from each XML file
     for genotype_report in genotype_reports:
         f = open(genotype_report)
-        rsid = 0
         for line in f:
+            # reached a rsid
             if "<SnpInfo rsId=" in line:
                 start_quote = line.index('"')
                 end_quote = line.index('"', start_quote+1)
                 rsid = line[start_quote+1:end_quote]
-                #print "l1:", line
-                #print "rsid=", rsid
                 if rsid not in population_dict:
                     population_dict[rsid] = [{}, {}]
                 try:
-                    #line = f.next()
+                    # while we haven't reached the end of the rsid information
                     while line.strip() != "</SnpInfo>":
                         line = f.next()
-                        #print "l2:", line
-                        #fill up dictionaries
                         if "<ByPop popId=" in line:
                             start_quote = line.index('"')
                             end_quote = line.index('"', start_quote+1)
                             popId = line[start_quote+1:end_quote]
+                            # check if popId is one of the 1000 Genome popIds
                             if int(popId) in THOUSAND_GENOME_popId:
-                                #print "popId=", popId
                                 line = f.next()
-                                #print "l3:",line
                                 while line.strip() != "</ByPop>":
                                     if "<AlleleFreq allele=" in line:
                                         start_quote = line.index('"')
@@ -55,7 +52,7 @@ def build_thousand_genotype_dict(genotype_reports):
                                         start_quote = line.index('"', end_quote+1)
                                         end_quote = line.index('"', start_quote+1)
                                         freq = line[start_quote+1:end_quote]
-                                        #print "allele=", allele, "freq=", freq
+                                        # update dictionary with popId information about allele frequency and update counter
                                         if popId not in population_dict[rsid][0]:
                                             population_dict[rsid][0][popId] = {}
                                         if allele not in population_dict[rsid][0][popId]:
@@ -67,8 +64,6 @@ def build_thousand_genotype_dict(genotype_reports):
                                         start_quote = line.index('"')
                                         end_quote = line.index('"', start_quote+1)
                                         gtype = line[start_quote+1:end_quote]
-                                        #print "gtypeLine=", line
-                                        #print "gtype=", gtype
                                         # remove gtypes that are "-/AAA"
                                         # only look at gtypes that are of the form "A/A"
                                         if len(gtype) <= 3:
@@ -80,16 +75,12 @@ def build_thousand_genotype_dict(genotype_reports):
                                             if gtype not in population_dict[rsid][1]:
                                                 population_dict[rsid][1][gtype] = set()
                                             population_dict[rsid][1][gtype].add(indId)
-                                    # get next line
                                     line = f.next()
-                                    #print line
                                 # end while line != "</ByPop>":
                         # end if "<ByPop popId=" in line:
                     # end while line != "</SnpInfo>"
                 except StopIteration:
-                    print "l4:", line
                     continue
-    #print population_dict
     return population_dict
     
 def build_genotype_dict(genotype_reports):
@@ -108,30 +99,27 @@ def build_genotype_dict(genotype_reports):
     population_dict = {}
     watson_dict = {}
     venter_dict = {}
+    # retrieve information from each XML file
     for genotype_report in genotype_reports:
         f = open(genotype_report)
-        rsid = 0
         for line in f:
+            # reached a rsid
             if "<SnpInfo rsId=" in line:
                 start_quote = line.index('"')
                 end_quote = line.index('"', start_quote+1)
                 rsid = line[start_quote+1:end_quote]
-                #print "l1:", line
-                #print "rsid=", rsid
                 if rsid not in population_dict:
                     population_dict[rsid] = [{}, {}]
                 try:
-                    #line = f.next()
+                    # while we haven't reached the end of the rsid information
                     while line.strip() != "</SnpInfo>":
                         line = f.next()
-                        #print "l2:", line
                         #fill up dictionaries
                         if "<ByPop popId=" in line:
                             start_quote = line.index('"')
                             end_quote = line.index('"', start_quote+1)
                             popId = line[start_quote+1:end_quote]
                             line = f.next()
-                            #print "l3:",line
                             while line.strip() != "</ByPop>":
                                 if "<AlleleFreq allele=" in line:
                                     start_quote = line.index('"')
@@ -140,7 +128,7 @@ def build_genotype_dict(genotype_reports):
                                     start_quote = line.index('"', end_quote+1)
                                     end_quote = line.index('"', start_quote+1)
                                     freq = line[start_quote+1:end_quote]
-                                    #print "allele=", allele, "freq=", freq
+                                    # update dictionary with popId information about allele frequency and update counter
                                     if popId not in population_dict[rsid][0]:
                                         population_dict[rsid][0][popId] = {}
                                     if allele not in population_dict[rsid][0][popId]:
@@ -152,8 +140,6 @@ def build_genotype_dict(genotype_reports):
                                     start_quote = line.index('"')
                                     end_quote = line.index('"', start_quote+1)
                                     gtype = line[start_quote+1:end_quote]
-                                    #print "gtypeLine=", line
-                                    #print "gtype=", gtype
                                     # remove gtypes that are "-/AAA"
                                     # only look at gtypes that are of the form "A/A"
                                     if len(gtype) <= 3:
@@ -171,21 +157,16 @@ def build_genotype_dict(genotype_reports):
                                         if int(indId) == VENTER_INDId:
                                             if rsid not in venter_dict:
                                                 venter_dict[rsid] = gtype
-                                # get next line
                                 line = f.next()
-                                #print line
                             # end while line != "</ByPop>":
                         # end if "<ByPop popId=" in line:
                     # end while line != "</SnpInfo>"
                 except StopIteration:
-                    print "l4:", line
                     continue
-    #print watson_dict
-    #print venter_dict
-    #print population_dict
     return population_dict, watson_dict, venter_dict
 
 def reverse_dict(orig_dict):
+    """Returns reversed_dictionary where key is the frequency and value is array of indIds"""
     reverse_dict = {}
     for key in orig_dict:
         value = orig_dict[key]
@@ -196,7 +177,7 @@ def reverse_dict(orig_dict):
     return reverse_dict
 
 def parse_genotype_report(genome_snps, genotype_reports):
-    """Returns rsid matches"""
+    """Returns number of rsid matches with Watson, Venter, and NCBI results"""
     population_dict, watson_dict, venter_dict = build_genotype_dict(genotype_reports)
     thousand_dict = build_thousand_genotype_dict(genotype_reports)
     indId_dict_exact = {}
@@ -218,22 +199,43 @@ def parse_genotype_report(genome_snps, genotype_reports):
         rsid = row[0][2:].strip()
         genotype = row[3].strip()
         
-        if rsid in population_dict:
-             genotype_dict = population_dict[rsid][1]
-             if genotype in genotype_dict:
-                 for eachInd in genotype_dict[genotype]:
-                     if eachInd not in indId_dict_exact:
-                         indId_dict_exact[eachInd] = 1
-                     else:
-                        indId_dict_exact[eachInd] += 1
-             for key in genotype_dict:
-                 if genotype[0] in key:
-                     for eachInd in genotype_dict[key]:
-                         if eachInd not in indId_dict_allele:
-                             indId_dict_allele[eachInd] = 1
-                         else:
-                             indId_dict_allele[eachInd] += 1 
+        # build dictionaries indId_dict_exact and indId_dict_allele with data from 1000 Genomes individuals
+        # dictionary will determine how many matches each individual has with sample
+        # if rsid in thousand_dict:
+        #      genotype_dict = thousand_dict[rsid][1]
+        #      if genotype in genotype_dict:
+        #          for eachInd in genotype_dict[genotype]:
+        #              if eachInd not in indId_dict_exact:
+        #                  indId_dict_exact[eachInd] = 1
+        #              else:
+        #                 indId_dict_exact[eachInd] += 1
+        #      for key in genotype_dict:
+        #          if genotype[0] in key:
+        #              for eachInd in genotype_dict[key]:
+        #                  if eachInd not in indId_dict_allele:
+        #                      indId_dict_allele[eachInd] = 1
+        #                  else:
+        #                      indId_dict_allele[eachInd] += 1 
 
+        # build dictionaries indId_dict_exact and indId_dict_allele with data from all individuals
+        # dictionary will determine how many matches each individual has with sample        
+        if rsid in population_dict:
+            genotype_dict = population_dict[rsid][1]
+            if genotype in genotype_dict:
+                for eachInd in genotype_dict[genotype]:
+                    if eachInd not in indId_dict_exact:
+                        indId_dict_exact[eachInd] = 1
+                    else:
+                       indId_dict_exact[eachInd] += 1
+            for key in genotype_dict:
+                if genotype[0] in key:
+                    for eachInd in genotype_dict[key]:
+                        if eachInd not in indId_dict_allele:
+                            indId_dict_allele[eachInd] = 1
+                        else:
+                            indId_dict_allele[eachInd] += 1 
+
+        # build dictionary to determine number of matches with Watson
         if rsid in watson_dict:
             watson_genotype = watson_dict[rsid]
             w_counter += 1
@@ -241,6 +243,8 @@ def parse_genotype_report(genome_snps, genotype_reports):
                 num_exact_watson += 1
             if genotype[0] in watson_genotype:
                 num_similar_watson += 1
+        
+        # build dictionary to determine number of matches with Venter
         if rsid in venter_dict:
             venter_genotype = venter_dict[rsid]
             v_counter += 1
@@ -254,7 +258,6 @@ def parse_genotype_report(genome_snps, genotype_reports):
         for freq in reverse_indId_dict_exact:
             if freq > max_freq_exact:
                 max_freq_exact = freq
-        #print "exact=", reverse_indId_dict_exact
         print "indId", reverse_indId_dict_exact[max_freq_exact], "with", max_freq_exact, "exact genotype match"
         
     if len(indId_dict_allele) > 0:
@@ -262,7 +265,6 @@ def parse_genotype_report(genome_snps, genotype_reports):
         for freq in reverse_indId_dict_allele:
             if freq > max_freq_allele:
                 max_freq_allele = freq
-        #print "allele=", reverse_indId_dict_allele
         print "indId", reverse_indId_dict_allele[max_freq_allele], "with", max_freq_allele, "allele match"
     
     print "# exact genotypes to Watson =", num_exact_watson
