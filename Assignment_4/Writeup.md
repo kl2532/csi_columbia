@@ -52,11 +52,11 @@ Group 5: Brian Trippe (blt2114), David Streid (dcs2153), Diego Paris (drp2121), 
 
        B. `samtools` generated 2,370 RSIDs
 
-      At first, we used the BAM Analysis Kit's generated RSIDs to perform our analysis. We wanted to check the RSIDs using `samtools` as a verification method but it generated RSIDs that were disjoint from BAM Analysis Kit's. We decided to use the RSIDs from `samtools` for the following reasons:
-        * Double the number of RSIDs 
-          * 2,370 (samtools) vs. 1,344 (BAM analysis kit)
-        * ~10x more hits on potential candidates
-        * Better Documentation
+ At first, we used the BAM Analysis Kit's generated RSIDs to perform our analysis. We wanted to check the RSIDs using `samtools` as a verification method but it generated RSIDs that were disjoint from BAM Analysis Kit's. We decided to use the RSIDs from `samtools` for the following reasons:
+  * Double the number of RSIDs 
+    * 2,370 (samtools) vs. 1,344 (BAM analysis kit)
+  * ~10x more hits on potential candidates
+  * Better Documentation
 
  6. Use RSIDs to find more information about individual
 
@@ -109,6 +109,8 @@ Group 5: Brian Trippe (blt2114), David Streid (dcs2153), Diego Paris (drp2121), 
 | matches | 838         | 723    | 554    | 87     |
 
 It is interesting to note that Bushman KB1 was the individual with the greatest number of matching alleles compared to our sample. However, we can eliminate him because based on the 1000 Genomes, our individual is most likely of European descent.
+
+`python parse_genotype_report2.py sample2geno.txt ncbi_genotype_report2.xml`
 
 #### Identifying 
 
@@ -167,6 +169,8 @@ Male
  Num of matched rsids =  900
 
  Num of unmatched rsids =  1470
+ 
+ `python get_ancestry2.py sample2geno.txt results_sample2.csv`
 
 #### Phenotypic Traits
 
@@ -179,6 +183,9 @@ Male
           * (C;C) ~1.7x increased obesity risk
           * (C;T) ~1.3x increased obesity risk
 
+Consulted [SNPedia] (http://www.snpedia.com/index.php) for phenotypes.
+
+Web scraper for [SNPedia] (http://www.snpedia.com/index.php) `python phenotype.py sample2geno.txt`
 
 #### Diseases
 
@@ -191,6 +198,8 @@ Male
 | rs238406    | ERCC2    | A      | Associated disease xeroderma pigmentosum, group d              |
 
  Information mapping rsid to gene generated from [NCBI XML(Full) report] (http://www.ncbi.nlm.nih.gov/projects/SNP/dbSNP.cgi?list=rslist)
+ 
+ Parsing XML file: `python parse_full_xml_report.py ncbi_full_report.xml`
 
  Further details about genes found at [GeneCards] (http://www.genecards.org/)
 
