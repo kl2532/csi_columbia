@@ -36,7 +36,7 @@ Group 5: Brian Trippe (blt2114), David Streid (dcs2153), Diego Paris (drp2121), 
 
 ### Analysis Pipeline
 
-<img src="./img/pipeline1.jpeg" width="600">
+<img src="./img/pipeline1.JPG" width="800">
 
  1. Align reads `bwa mem -x ont2d ref.fasta reads.fastq > aln1.sam`
  2. Creates .bam file from .sam `samtools view -b -S -o aln1.bam aln1.sam`
@@ -60,22 +60,21 @@ Group 5: Brian Trippe (blt2114), David Streid (dcs2153), Diego Paris (drp2121), 
 
  6. Use RSIDs to find more information about individual
 
- <img src="./img/pipeline2.jpeg" width="600">
+ <img src="./img/pipeline2.JPG" width="800">
+ 
 
-      With the RSIDs, we used the following resources:
+  With the RSIDs, we used the following resources:
+  * SPSmart
+    * Ancestry
+      * Matched RSIDs with 1000 Genome data set
 
-
-       * SPSmart
-  	      * Ancestry
-  	 	     * Matched RSIDs with 1000 Genome data set
-
-       * NCBI dbSNP database
-  	      * Reference SNP Cluster Report
-  	 	     * Looked at report for each rsid
-	      * Genotype Report
-	 	     * Submitted RSIDs via batch query and received XML with information about population and individuals
-	      * SNP-Phenotype Association 
-	 	     * Submitted RSIDs via batch query and received XML with information regarding genes
+  * NCBI dbSNP database
+    * Reference SNP Cluster Report
+      * Looked at report for each rsid
+    * Genotype Report
+      * Submitted RSIDs via batch query and received XML with information about population and individuals
+    * SNP-Phenotype Association 
+      * Submitted RSIDs via batch query and received XML with information regarding genes
 
 ### Comparing Genomes
 
@@ -94,7 +93,7 @@ Group 5: Brian Trippe (blt2114), David Streid (dcs2153), Diego Paris (drp2121), 
 
 #### Comparison using ftp files
 
-<img src="./img/ftp_comparison.jpeg" width="600">
+<img src="./img/ftp_comparison.JPG" width="400">
 
 |                | Watson    | Venter    | Erlich  |
 |----------------|-----------|-----------|---------|
@@ -103,11 +102,13 @@ Group 5: Brian Trippe (blt2114), David Streid (dcs2153), Diego Paris (drp2121), 
 
 #### Comparison using NCBI dbSNP Genomic Report
 
-<img src="./img/ncbi_comparison.jpeg" width="600">
+<img src="./img/ncbi_comparison.JPG" width="500">
 
 |         | Bushman KB1 | Watson | Venter | Erlich |
 |---------|-------------|--------|--------|--------|
 | matches | 838         | 723    | 554    | 87     |
+
+It is interesting to note that Bushman KB1 was the individual with the greatest number of matching alleles compared to our sample. However, we can eliminate him because based on the 1000 Genomes, our individual is most likely of European descent.
 
 #### Identifying 
 
@@ -151,7 +152,7 @@ Male
 
 #### Ancestry
 
-<img src="./img/ancestry_comparison.jpeg" width="600">
+<img src="./img/ancestry_comparison.JPG" width="500">
 
  Using [SPSmart] (http://spsmart.cesga.es/), rsid matcher with 1000 Genomes dataset:
 
