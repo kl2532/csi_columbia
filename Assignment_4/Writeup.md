@@ -7,33 +7,32 @@ Group 5: Brian Trippe (blt2114), David Streid (dcs2153), Diego Paris (drp2121), 
 
  Comparing our sequencer output to the previous Hackathon, we see that the average reads per channel is much less. This may be attributed to longer reads, which would lead to fewer reads per channel.
 
- |                           | What did Sophie eat?                     | CSI Columbia                              |
- |---------------------------|------------------------------------------|-------------------------------------------|
- | Active Channels           | 251                                      | 216                                       |
- | Average reads per channel | 101.25498008                             | 24.912037037                              |
- |                           | Channel 90 has most reads with 449 reads | Channel 224 has most reads with 123 reads |
+|                           | What did Sophie eat?                     | CSI Columbia                              |
+|---------------------------|:----------------------------------------:|:-----------------------------------------:|
+| Active Channels           | 251                                      | 216                                       |
+| Average reads per channel | 101.25498008                             | 24.912037037                              |
+|                           | Channel 90 has most reads with 449 reads | Channel 224 has most reads with 123 reads |
 
+#### Statistics regarding *2D reads*:
 
- #### Statistics regarding *2D reads*:
+|        | Total # of Reads | Longest Read (bp) |
+|--------|------------------|-------------------|
+| Passed | 2,272 (42%)      | 42,974            |
+| Failed | 3,109 (58%)      | 46,250            |
 
- |        | Total # of Reads | Longest Read (bp) |
- |--------|------------------|-------------------|
- | Passed | 2,272 (42%)      | 42,974            |
- | Failed | 3,109 (58%)      | 46,250            |
-
- #### Alignment to hg19 using BWA-MEM ONT
+#### Alignment to hg19 using BWA-MEM ONT
 
  2,091 reads aligned (92%) out of 2,272 2D passed reads
 
- #### Substitution matrix:
+#### Substitution matrix:
 
- | Nucleotide | A | C | T | G | Del |
- | --- | --- | --- | --- | --- | --- |
- | A | 364290 | 3459 | 1618 | 3591 | 10947 |
- | C | 1691 | 246343 | 2550 | 2505 | 6171 |
- | T | 1576 | 3743 | 365034 | 3290 | 18011 |
- | G | 2443 | 2466 | 1591 | 246612 | 6213 |
- | Ins | 7596 | 8785 | 10782 | 9589 | N/A |
+| Nucleotide | A | C | T | G | Del |
+| --- | --- | --- | --- | --- | --- |
+| A | 364290 | 3459 | 1618 | 3591 | 10947 |
+| C | 1691 | 246343 | 2550 | 2505 | 6171 |
+| T | 1576 | 3743 | 365034 | 3290 | 18011 |
+| G | 2443 | 2466 | 1591 | 246612 | 6213 |
+| Ins | 7596 | 8785 | 10782 | 9589 | N/A |
 
 ### Analysis Pipeline
 
@@ -49,11 +48,9 @@ Group 5: Brian Trippe (blt2114), David Streid (dcs2153), Diego Paris (drp2121), 
 
      To generate RSIDs, we had 2 approaches:
 
-       A. BAM Analysis Kit
-         * generated 1,344 RSIDs
+       A. *BAM Analysis Kit* generated 1,344 RSIDs
 
-       B. `samtools`
-         * generated 2,370 RSIDs
+       B. `samtools` generated 2,370 RSIDs
 
       At first, we used the BAM Analysis Kit's generated RSIDs to perform our analysis. We wanted to check the RSIDs using `samtools` as a verification method but it generated RSIDs that were disjoint from BAM Analysis Kit's. We decided to use the RSIDs from `samtools` for the following reasons:
         * Double the number of RSIDs 
@@ -67,8 +64,9 @@ Group 5: Brian Trippe (blt2114), David Streid (dcs2153), Diego Paris (drp2121), 
 
       With the RSIDs, we used the following resources:
 
+
        * SPSmart
-  	         * Ancestry
+  	      * Ancestry
   	 	     * Matched RSIDs with 1000 Genome data set
 
        * NCBI dbSNP database
@@ -81,10 +79,10 @@ Group 5: Brian Trippe (blt2114), David Streid (dcs2153), Diego Paris (drp2121), 
 
 ### Comparing Genomes
 
- |                | Yaniv Erlich | James Watson (NCBI ftp file) | James Watson (NCBI dbSNP Genomic Report) | Craig Venter (Venter Institute ftp file) | Craig Venter (NCBI dbSNP Genomic Report) | 1000 Genomes |
- |----------------|--------------|------------------------------|------------------------------------------|------------------------------------------|------------------------------------------|--------------|
- | RSID matches   | 87           | 402                          | 723                                      | 248                                      | 554                                      | 0            |
- | RSIDs reported | 960,614      | 2,060,544                    | Unknown                                  | 4,017,989 ssids                          | Unknown                                  | N/A          |
+|                | Yaniv Erlich | James Watson (NCBI ftp file) | James Watson (NCBI dbSNP Genomic Report) | Craig Venter (Venter Institute ftp file) | Craig Venter (NCBI dbSNP Genomic Report) | 1000 Genomes |
+|----------------|--------------|------------------------------|------------------------------------------|------------------------------------------|------------------------------------------|--------------|
+| RSID matches   | 87           | 402                          | 723                                      | 248                                      | 554                                      | 0            |
+| RSIDs reported | 960,614      | 2,060,544                    | Unknown                                  | 4,017,989 ssids                          | Unknown                                  | N/A          |
 
  Notes:
 
@@ -183,13 +181,13 @@ Male
 
 #### Diseases
 
- | rsid        | Gene     | Allele | Description                                                    |
- |-------------|----------|--------|----------------------------------------------------------------|
- | rs148226094 | SLC4A1AP | C      | Associated with lung cancer                                    |
- | rs61421071  | ISG20    | C      | Associated with mast cell disease and malignant glioma (tumor) |
- | rs2487303   | KIF26A   | G/A    | Associated with megacolon (abnormal dilation of the colon)     |
- | rs375771024 | SLIT2    | A      | Associated with Crohn's colitis                                |
- | rs238406    | ERCC2    | A      | Associated disease xeroderma pigmentosum, group d              |
+| rsid        | Gene     | Allele | Description                                                    |
+|-------------|----------|--------|----------------------------------------------------------------|
+| rs148226094 | SLC4A1AP | C      | Associated with lung cancer                                    |
+| rs61421071  | ISG20    | C      | Associated with mast cell disease and malignant glioma (tumor) |
+| rs2487303   | KIF26A   | G/A    | Associated with megacolon (abnormal dilation of the colon)     |
+| rs375771024 | SLIT2    | A      | Associated with Crohn's colitis                                |
+| rs238406    | ERCC2    | A      | Associated disease xeroderma pigmentosum, group d              |
 
  Information mapping rsid to gene generated from [NCBI XML(Full) report] (http://www.ncbi.nlm.nih.gov/projects/SNP/dbSNP.cgi?list=rslist)
 
