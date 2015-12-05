@@ -37,6 +37,8 @@ Group 5: Brian Trippe (blt2114), David Streid (dcs2153), Diego Paris (drp2121), 
 
 ### Analysis Pipeline
 
+<img src="./img/pipeline1.jpeg" width="600">
+
  1. Align reads `bwa mem -x ont2d ref.fasta reads.fastq > aln1.sam`
  2. Creates .bam file from .sam `samtools view -b -S -o aln1.bam aln1.sam`
  3. Creates aln1sorted.bam (ordered by chromosome) `samtools sort aln1.bam aln1sorted`
@@ -60,6 +62,9 @@ Group 5: Brian Trippe (blt2114), David Streid (dcs2153), Diego Paris (drp2121), 
         * Better Documentation
 
  6. Use RSIDs to find more information about individual
+
+ <img src="./img/pipeline2.jpeg" width="600">
+
       With the RSIDs, we used the following resources:
 
        * SPSmart
@@ -91,12 +96,16 @@ Group 5: Brian Trippe (blt2114), David Streid (dcs2153), Diego Paris (drp2121), 
 
 #### Comparison using ftp files
 
+<img src="./img/ftp_comparison.jpeg" width="600">
+
 |                | Watson    | Venter    | Erlich  |
 |----------------|-----------|-----------|---------|
 | matches        | 402       | 248       | 87      |
 | RSIDs reported | 2,060,544 | 4,017,989 | 960,614 |
 
 #### Comparison using NCBI dbSNP Genomic Report
+
+<img src="./img/ncbi_comparison.jpeg" width="600">
 
 |         | Bushman KB1 | Watson | Venter | Erlich |
 |---------|-------------|--------|--------|--------|
@@ -144,15 +153,17 @@ Male
 
 #### Ancestry
 
+<img src="./img/ancestry_comparison.jpeg" width="600">
+
  Using [SPSmart] (http://spsmart.cesga.es/), rsid matcher with 1000 Genomes dataset:
 
- | Group            | Frequency allele from sample matched |
- |------------------|--------------------------------------|
- | Population Set 1 | 0.5012488888888882                   |
- | Europe           | 0.5225288888888893                   |
- | America          | 0.5131288888888886                   |
- | Africa           | 0.4668466666666665                   |
- | East Asia        | 0.4950622222222223                   |
+| Group            | Frequency allele from sample matched |
+|------------------|--------------------------------------|
+| Population Set 1 | 0.5012488888888882                   |
+| Europe           | 0.5225288888888893                   |
+| America          | 0.5131288888888886                   |
+| Africa           | 0.4668466666666665                   |
+| East Asia        | 0.4950622222222223                   |
 
  Num of matched rsids =  900
 
