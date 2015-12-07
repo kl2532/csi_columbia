@@ -86,8 +86,8 @@ Group 5: Brian Trippe (blt2114), David Streid (dcs2153), Diego Paris (drp2121), 
  Notes:
 
    * Yaniv Erlich's RSIDs restricted to 23andMe assay
-   * James Watson: NCBI ftp file from [here] (ftp://ftp.ncbi.nlm.nih.gov/hapmap/jimwatsonsequence/)
-   * Craig Venter: Venter Institute ftp file from [here] (ftp://ftp.jcvi.org/pub/data/huref/)
+   * James Watson: NCBI ftp file from ftp://ftp.ncbi.nlm.nih.gov/hapmap/jimwatsonsequence/
+   * Craig Venter: Venter Institute ftp file from ftp://ftp.jcvi.org/pub/data/huref/
    * NCBI Genomic Report generated from [here] (http://www.ncbi.nlm.nih.gov/projects/SNP/dbSNP.cgi?list=rslist)
      * 1000 Genomes is included in NCBI report as population categories (i.e. EUR, AFR, AMR) but individuals are not included
 
