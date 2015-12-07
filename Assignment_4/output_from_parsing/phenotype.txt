@@ -1,0 +1,2 @@
+rs1379659(A;A)	common on affy axiom data	GeneSLIT2
+rs1421085(C;C)	~1.7x increased obesity risk	GeneFTO

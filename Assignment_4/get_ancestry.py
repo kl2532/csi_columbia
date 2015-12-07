@@ -64,8 +64,6 @@ def get_ancestry(genome_snps, csv_files):
     for line in f:
         row = line.split()
         rsid = row[0]
-        print rsid
-        with open('rsid.txt','a') as f2: f2.write(rsid + '\n')
         base = row[3][0]
         if base == 'A':
             base = 0
@@ -109,4 +107,4 @@ if __name__ == '__main__':
     else:
         print 'Usage: (python) get_ancestry.py genome_full_snps.txt <.csv files>'
         print 'Example: \
-            python get_ancestry.py genome_full_snps.txt results.csv'
+            python get_ancestry.py genome_full_snps.txt results.csv results2.csv'
