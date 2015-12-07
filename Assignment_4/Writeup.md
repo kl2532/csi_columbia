@@ -1,62 +1,63 @@
 # Assignment 4
-## Findings
 
 Group 5: Brian Trippe (blt2114), David Streid (dcs2153), Diego Paris (drp2121), Katie Lin (kl2532)
 
 
 
-### General Approach
+## General Approach
 
-Though all humans share the same same set of autosomal and mitochrondrial genes, there variations in the specific sequences.  These variations in a person's genome are inherited from one's parents and a few also arise de novo.
+ Though all humans share the same same set of autosomal and mitochrondrial genes, there variations in the specific sequences.  These variations in a person's genome are inherited from one's parents and a few also arise de novo.
 
-The specific set of variations that exist in one's genome are unique to that person and are responsible for heritable traits.  Additionally, because the vast majority of SNP's are inherited from one's parents (and by extension, his ancestors), these variations carry information about an individuals ancestry.
+ The specific set of variations that exist in one's genome are unique to that person and are responsible for heritable traits.  Additionally, because the vast majority of SNP's are inherited from one's parents (and by extension, his ancestors), these variations carry information about an individuals ancestry.
 
-####Identifying a person uniquely
+###Identifying a person uniquely
 
-The likelihood of given set of SNP's occurring is proportional to the number individuals we expect to carry that set of SNP's.  This means that if we would like to identify a person uniquely, we will need to be considering a set of SNP's whose probability of occurring is on average equal to 1/P, where P is the population size.
+ The likelihood of given set of SNP's occurring is proportional to the number individuals we expect to carry that set of SNP's.  This means that if we would like to identify a person uniquely, we will need to be considering a set of SNP's whose probability of occurring is on average equal to 1/P, where P is the population size.
 
-#####Methodology
-From the perspective of information theory, this means that we are looking to have a distribution over SNP's that whose entropy is -log<sub>2</sub>(1/P).  So, if we are consider the entire world population, we require a distribution with entropy ~= 33, because then draws from the distribution will on average provide 33 bits of information, enough to describe one in 7 Billion people.
+####Methodology
+ From the perspective of information theory, this means that we are looking to have a distribution over SNP's that whose entropy is -log<sub>2</sub>(1/P).  So, if we are consider the entire world population, we require a distribution with entropy ~= 33, because then draws from the distribution will on average provide 33 bits of information, enough to describe one in 7 Billion people.
 
-#####Our Task
-In our case, the task is simpler, as we have been told that our mystery man (or woman) is of of ~2000 people, i.e.  the person is either James Watson, Craig Venter, Professor Erlich, or someone from the 1000 genomes project.  Given this hint, We need only approximately 12 bits of information to identify our person.
+####Our Task
+ In our case, the task is simpler, as we have been told that our mystery man (or woman) is of of ~2000 people, i.e.  the person is either James Watson, Craig Venter, Professor Erlich, or someone from the 1000 genomes project.  Given this hint, We need only approximately 12 bits of information to identify our person.
 
-To calculate the number of SNP's we need to identify someone in this case, must consider the amount of information we will get from each one.  This varies by SNP (since a SNP that corresponds to one of 3 equally likely alleles will carry more information than an SNP that takes the same value in 90% of individuals.
+ To calculate the number of SNP's we need to identify someone in this case, must consider the amount of information we will get from each one.  This varies by SNP (since a SNP that corresponds to one of 3 equally likely alleles will carry more information than an SNP that takes the same value in 90% of individuals.
 
-Nevertheless, the expected bits of information from a SNP is a useful quantity to know, so we wrote a script to calculate the average entropy of SNP's reported in the 1000 genomes project release of dbsnp.vcf .  From this, the expected information gain of an SNP was found to be 0.21 bits.
+ Nevertheless, the expected bits of information from a SNP is a useful quantity to know, so we wrote a script to calculate the average entropy of SNP's reported in the 1000 genomes project release of dbsnp.vcf .  From this, the expected information gain of an SNP was found to be 0.21 bits.  Given this, <b>only 55 independent SNP's would be needed</b>.
 
-Given this, only 55 independent SNP's would be needed.
+ This assumption is violated, however, by any linkage disequilibrium(LD) that might occur between SNP's.  Had we been working with Illumina reads, LD would not be a very significant concern as SNP's on different chromosomes or far apart along the same chromosome are independently distributed.  However, since we have multiple SNP's on each read (on average), this is potentially quite significant in our case.
 
-This assumption is violated, however, by any linkage disequilibrium(LD) that might occur between SNP's.  Had we been working with Illumina reads, LD would not be a very significant concern as SNP's on different chromosomes or far apart along the same chromosome are independently distributed.  However, since we have multiple SNP's on each read (on average), this is potentially quite significant in our case.
+ The number of SNP's in our experiments that are required will be larger than 50, however, given that some of the SNP's found will likely be erroneous due to the large amount of noise in our data.
 
-The number of SNP's in our experiments that are required will be larger than 50, however, given that some of the SNP's found will likely be erroneous due to the large amount of noise in our data.
+###Discovering Ancestry and Population History
+ Because SNP's are obtained from ancestors, given the frequencies of occurrence of different SNP's in different populations, one can use observed SNP's to back out most probable ancestral populations.  We used the SPSmart tool to do this analysis for us freely online.
 
-####Discovering Ancestry and Population History
-Because SNP's are obtained from ancestors, given the frequencies of occurrence of different SNP's in different populations, one can use observed SNP's to back out most probable ancestral populations.  We used the SPSmart tool to do this analysis for us freely online.
+ Additionally, the mixed membership model introduced in the 2001 Pritchard paper discussed in class describes one can discover hidden population structure and ancestral genomes from the SNP's of a set of individuals. If time allowed, we hoped to run their algorithm on the 1000 genomes project genomes and then compare SNP's present in our sample with the discovered components.
 
-Additionally, the mixed membership model introduced in the 2001 Pritchard paper discussed in class describes one can discover hidden population structure and ancestral genomes from the SNP's of a set of individuals. If time allowed, we hoped to run their algorithm on the 1000 genomes project genomes and then compare SNP's present in our sample with the discovered components.
+###Trait/Phenotype Prediction
+ Since SNP's are responsible for many of traits, the probability of our individual possessing given traits can potentially be assessed from the SNP's we observe in our sample.  The correlations of many SNP's with disease traits has been investigated by an array of different Genome Wide Association Studies (GWAS's).  These correlations are <b>often included in annotations of SNP's such as those in the 1000 genomes project release of dbsnp.vcf</b> 
 
-####Trait/Phenotype Prediction
-Since SNP's are responsible for many of traits, the probability of our individual possessing given traits can potentially be assessed from the SNP's we observe in our sample.  The correlations of many SNP's with disease traits has been investigated by an array of different Genome Wide Association Studies (GWAS's).  These correlations are often included in annotations of SNP's such as those in the 1000 genomes project release of dbsnp.vcf 
-It is worth of note, however, that most SNP's are not directly responsible for observable traits.
+ It is worth of note, however, that most SNP's are not directly responsible for observable traits.
 
-#####Disease Phenotypes
-Disease phenotypes are the most common annotated correlations.  This is because of much of the public genomic information is produced in medical research studies.  This fact biases the composition of SNP annotations towards many disease-focussed annotations.  We hope to use these annotations to predict possible disease phenotypes in our individual.
+####Disease Phenotypes
+ Disease phenotypes are the most common annotated correlations.  This is because of much of the public genomic information is produced in medical research studies.  This fact biases the composition of SNP annotations towards many disease-focussed annotations.  We hope to use these annotations to predict possible disease phenotypes in our individual.
 
-#####Appearance Traits
-A handful of traits exist for which the relationship between genetics and phenotype is well understood.  For a few of these, we looked to see if we had observed SNP's with known correlation to see if we could predict the traits.  This was not a hopeful endeavor, however, because our read coverage of a MinIon  nano-pore sequencer is very low.  We looked for SNP's in our data associated with eye-color, hair-color, and earwax texture, but were unfortunately unable to find success.
+####Traits of Appearance
+ A handful of traits exist for which the relationship between genetics and phenotype is well understood.  For a few of these, we looked to see if we had observed SNP's with known correlation to see if we could predict the traits.  This was not a hopeful endeavor, however, because our read coverage of a MinIon  nano-pore sequencer is very low.  We looked for SNP's in our data associated with eye-color, hair-color, and earwax texture, but were unfortunately unable to find success.
 
-#####Using Imputation for More Information
-To get more information on traits, we sought to use genetic imputation.  Imputation takes advantage of LD to predict the likely variants of SNP's nearby those you have observed.  The technique is founded on the assumption that nearby SNP's are in linkage disequilibrium and uses calculated ancestral sequences and SNP's.  A seemingly convenient online tool for performing imputation is the Michigan Imputation Server.
+####Using Imputation for More Information
+ To get more information on traits, we sought to use genetic imputation.  Imputation takes advantage of LD to predict the likely variants of SNP's nearby those you have observed.  The technique is founded on the assumption that nearby SNP's are in linkage disequilibrium and uses calculated ancestral sequences and SNP's.  A seemingly convenient online <b>tool for performing imputation is the Michigan Imputation Server</b>.
 
-We attempted to use the Michigan Imputation Server on our data but after hours of struggling to massage our VCF's into the proper format, and understand cryptic error messages, we admitted defeat and settled for using only our observed SNP's.
+ We attempted to use the Michigan Imputation Server on our data but after hours of struggling to massage our VCF's into the proper format, and understand cryptic error messages, we admitted defeat and settled for using only our observed SNP's.
 
-#####Gender
-Predicting gender from reads is by far the most straight-forward task we could hope to perform.  Since males carry a Y-Chromosome but women do not, observing reads that align to the Y chromosome with high significance would signal that the sample comes from a male, while observing no reads on chrY would signal the sample is likely female.
-This later case is, however, slightly complicated by the fact that, with only a small number of aligned reads, there is a non-trivial probability of observing no reads on the Y-Chromosome even if the individual is a male.  If this were the case, we planned to predict male v.s. female based on the likelihoods of getting the observed number of reads aligned to the X chromosome and 0 reads aligned to the Y chromosome given that the sample came from a man or from a woman.  The number of reads on the X chromosome could be informative because women have two copies of the X chromosome while men have only one.
-Luckily, we observed several reads on the Y chromosome and did not need to delve into this analysis.
+####Gender
+ Predicting gender from reads is by far the most straight-forward task we could hope to perform.  Since males carry a Y-Chromosome but women do not, observing reads that align to the Y chromosome with high significance would signal that the sample comes from a male, while observing no reads on chrY would signal the sample is likely female.
+
+ This later case is, however, slightly complicated by the fact that, with only a small number of aligned reads, there is a non-trivial probability of observing no reads on the Y-Chromosome even if the individual is a male.  If this were the case, we planned to predict male v.s. female based on the likelihoods of getting the observed number of reads aligned to the X chromosome and 0 reads aligned to the Y chromosome given that the sample came from a man or from a woman.  <b>The number of reads on the X chromosome is informative because women have two copies of the X chromosome while men have only one</b>.
+
+ Luckily, we observed several reads on the Y chromosome and did not need to delve into this analysis.
 
 
+## Findings
 ### MinIon Sequencing Information
 
  Comparing our sequencer output to the previous Hackathon, we see that the average reads per channel is much less. This may be attributed to longer reads, which would lead to fewer reads per channel.
